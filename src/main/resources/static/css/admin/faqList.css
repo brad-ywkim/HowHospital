@@ -1,0 +1,44 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.accordion-header {
+  background-color: #f1f1f1;
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-btn {
+  cursor: pointer;
+}
+
+.accordion-content,
+.accordion-sub {
+  padding: 15px;
+  display: none;
+}
+
+.accordion-content.show,
+.accordion-sub.show {
+  display: block;
+}
+
+/* Add styles for sub-level headers if needed */
+.accordion-sub .accordion-header {
+  background-color: #eaeaea;
+}

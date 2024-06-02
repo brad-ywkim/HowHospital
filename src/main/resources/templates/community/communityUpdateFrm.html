@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="common/header"></th:block>
+<script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
+<link rel="stylesheet" href="/css/community/community.css">
+
+	<!-- container -->
+    <main id="container" class="container">
+
+		<!-- contents -->
+        <section id="contents" class="contents community">
+            <div class="inner_wrap">
+                <div class="title_wrap">
+                    <h2>병원어때 매거진</h2>
+                    <p class="title_sub">궁금한 건강고민을 자유롭게 물어보세요!</p>
+                </div>
+                
+                <div class="community_board_area view">
+					<div class="communityView">
+						<form action="/community/update" method="post" enctype="multipart/form-data" class="communityUpdateFrm">
+							<div class="communityUpdate">
+								<div class="input_wrap">
+									<div class="input_title">제목</div>
+									<div class="input_item">
+										<input type="text" name="boardTitle" placeholder="글 제목을 입력하세요" th:value="${c.boardTitle}">
+										<input type="hidden" name="boardNo" th:value="${c.boardNo}">
+									</div>
+								</div>
+								
+								<div class="input_wrap">
+									<div class="input_title">작성자</div>
+									<div class="input_item">
+										<span th:text="${session.member.memberName}"></span>
+										<input type="hidden" name="memberNo" th:value="${session.member.memberNo}">
+									</div>
+								</div>
+								
+								<div class="input_wrap">
+									<div class="input_title">썸네일 이미지</div>
+									<div class="file-wrap">
+										<div th:each="file : ${c.fileList}" class="files">
+											<span th:text="${file.filename}"></span>
+											<button th:onclick="deleteFile(this,[[${file.fileNo}]])" type="button" class="btn_primary outline sm">삭제</button>
+										</div>
+									</div>
+									<div class="input_item">
+										<input type="file" name="upfile" multiple>
+									</div>
+								</div>
+								
+								<div class="textarea">
+									<textarea id="boardContent" name="boardContent" th:text="${c.boardContent}"></textarea>
+								</div>
+										
+								<div class="btn_area">
+									<button type="submit" class="btn_primary" onclick="return checkVal();">수정 완료</button>
+								</div>
+							</div>			
+						</form>
+					</div>
+                </div>
+            </div>
+        </section>
+        <!--// contents -->
+        
+    </main>
+    <!--// container -->
+	
+<th:block th:include="common/footer"></th:block>
+<!-- js 링크 -->
+<script>
+	$("#boardContent").summernote({
+		height: 500,
+		lang: "ko-KR",
+		callbacks: {
+			onImageUpload: function(files){
+				uploadImage(files[0], this);
+			}
+		},
+		disableResize: true,
+		disableResizeEditor: true,
+		resize: false
+	});
+	function uploadImage(file, editor){
+		const form = new FormData();
+		form.append("upfile", file);
+		$.ajax({
+			url: "/community/editor",
+			type: "post",
+			data: form,
+			processData: false,
+			contentType: false,
+			success: function(data){
+				$(editor).summernote("insertImage",data);
+			},
+			error: function(){
+				console.log("에러");
+			}
+		});
+	}
+	function deleteFile(obj, fileNo){
+		if(confirm("파일을 삭제하시겠습니까?")){
+			const input = $("<input>");
+			input.attr("name","delFileNo");
+			input.attr("type","hidden");
+			input.val(fileNo);
+			$(".communityUpdateFrm").append(input);
+			$(obj).parent().remove();
+		}
+	}
+	function checkVal(){
+		if($("[name=boardTitle]").val() == ""){
+			alert("제목을 입력하세요");
+			return false;
+		}
+		if($("#boardContent").val() == "<p><br></p>"){
+			alert("내용을 입력하세요");
+			return false;
+		}else{
+			return true;
+		}
+	}
+</script>
+</body>
+</html>

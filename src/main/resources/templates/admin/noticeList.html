@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="common/header"></th:block>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/admin/adminMain.css">
+
+	<!-- container -->
+    <main id="container" class="container">
+
+		<!-- contents -->
+        <section id="contents" class="contents adminMain">
+            <div class="inner_wrap">
+                <h2>공지사항</h2>
+            </div>
+            <div class="inner_wrap">
+            <a id="write-btn" class="write-btn" th:if="${session.member != null && session.member.memberType == 3}" href="/admin/noticeWriteFrm">작성하기</a>
+        	<form action="/admin/searchNotice" method="get" id="searchFrm">							
+				<th:block th:switch="${type}">
+						<select class="form-select" th:case="writer" name="type">
+							<option value="title">제목</option>
+							<option value="writer" selected>작성자</option>
+						</select>
+						<select class="form-select" th:case="*" name="type">
+							<option value="title" selected>제목</option>
+							<option value="writer">작성자</option>
+						</select>
+				</th:block>
+					<div id="search">
+						<input type="text" id="input-form" name="keyword" placeholder="검색어 입력" th:value="${keyword}">
+						<input type="hidden" name="reqPage" value="1">
+						<button type="submit" id="check" onclick="return checkKeyword();">
+							<span class="material-icons">search</span>
+						</button>
+					</div>
+			</form>
+        	<table class="btl">
+        		<tr class="tr-header">
+        			<th style="width:15%;">번호</th>
+        			<th style="width:35%;">제목</th>
+        			<th style="width:15%;">작성자</th>
+        			<th style="width:15%;">조회수</th>
+        			<th style="width:20%;">등록일</th>
+        		</tr>
+        		<tr class="tr-content" th:each="notice : ${noticeList}">
+					<td name="noticeNo" th:text="${notice.noticeNo}"></td>
+					<td name="noticeTitle">
+						<a th:href="@{/admin/noticeDetail(noticeNo=${notice.noticeNo})}" th:text="${notice.noticeTitle}"></a>
+					</td>
+					<td name="memberName" th:text="${notice.memberName}"></td>
+					<td name="readCount" th:text="${notice.readCount}"></td>
+					<td name="reqDate" th:text="${notice.reqDate}"></td>
+				</tr>
+        	</table>
+        	
+        	<div id="pageNavi" class="pagination" th:utext="${pageNavi}"></div>
+        </div>
+        </section>
+	    <!--// contents -->
+        
+    </main>
+    <!--// container -->
+	
+<th:block th:include="common/footer"></th:block>
+<!-- js 링크 -->
+    <script>
+	    function checkKeyword(){
+			const keyword = $("#input-form").val();
+			if(keyword == ""){
+				alert("검색어를 입력하세요.");
+				return false;
+			}
+		}	
+	</script>
+</body>
+</html>

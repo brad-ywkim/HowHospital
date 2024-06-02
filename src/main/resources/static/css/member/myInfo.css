@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+
+#contents{
+	padding: 0 !important;
+	display:flex;
+	justify-content: center;
+	 
+}
+
+.mypageWrap{
+	padding: 0px !important;	
+	width:1200px; 
+	display: flex;
+	justify-content: center;  
+	
+}
+
+
+.mypageMenu li>a{
+	color:var(--main_03);
+	min-width:200px;
+	text-align:center;
+	padding: 20px 20px;
+	font-size: 16px;
+	width: 100%;
+	font-weight:bold;
+	width:100%;
+	
+}
+
+
+.mypageMenu li{
+	display:flex;
+	list-style :none;
+	color : #222222;
+	justify-content: flex-start;
+	
+}
+
+.mypageMenu li:hover{
+	background-color:rgba(67,137,186,0.2);
+	
+	
+}
+
+.myInfoWrap{
+	flex-grow: 1;
+    padding: 30px;
+    display: flex;
+    justify-content: flex-start; /* 가로 가운데 정렬 */
+    width:1000px;
+    
+	
+}
+
+.myInfoWrap>form{
+	width:100%;
+}
+
+.info{
+	
+	padding : 20px;
+	
+}
+
+.myInfoBox{
+	width:100%;
+    
+    padding:30px;
+}
+
+.myInfoContents{
+	
+	justify-content: center;
+	padding-left: 220px;
+	
+	width: 800px;
+	
+	
+}
+
+.box{
+	
+	display: flex;
+	
+}
+
+
+.mypageMenu {
+	
+	display: flex;
+	flex-direction: column;
+	
+	
+}
+
+.material-icons{
+	
+	font-size: 100px;
+	color:var(--main_03);
+	padding-right: 20px;
+	
+}
+/* 이름과 이메일 스타일 */
+.nameWrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* 이름과 이메일 사이 간격 조절 */
+}
+
+.nameWrap .material-icons {
+    font-size: 100px;
+    margin-right: 10px;
+}
+
+.emailWrap {
+    margin-bottom: 10px; /* 이메일과 다음 정보 사이 간격 조절 */
+}
+.emailWrap h3{
+	
+	margin: 0;
+	padding-top: 20px;
+	
+}
+.emailWrap h4 {
+    margin: 0;
+}
+
+/* 정보 스타일 유지 */
+.info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info ul li {
+    margin-bottom: 10px;
+}
+
+
+.btnSub{
+	
+	display: flex;
+	justify-content: center;
+	padding-right : 220px;
+	
+	padding-top: 30px;
+    
+}
+
+.menuBox{
+	
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

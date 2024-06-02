@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
+#searchFrm{
+	margin :5px;
+	display:flex;
+	justify-content: flex-end;
+}
+
+#search{
+  width: 300px;
+  position : relative;
+}
+
+#input-form {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 14px;
+  text-indent: 1em;
+}
+
+#check{
+	width: 10%;
+	position : absolute;
+	top : 1px;
+	right :10px;
+}
+
+.form-select{
+	border:1px solid #222; 
+	border-radius:4px; 
+	overflow:hidden;
+	width:70px;
+	text-indent:20px;
+}
+
+.btl{
+	width: 100%;
+  	border-spacing: 0px;
+  	border-collapse: collapse;
+  	height : 50px;
+	line-height:50px;
+	text-align:center;
+	white-space:nowrap;
+	overflow : hidden;
+	text-overflow: ellipsis;
+}
+
+.tr-header{
+	background-color: rgba(57, 62, 70, 0.15);
+	border-top: 3px solid #008cba;
+	border-bottom: 3px solid #008cba;
+}
+
+.tr-content{
+	background-color: white;
+	border-bottom: 1px solid #c6c9cc;
+}
+
+.tr-content>td {
+  border-right: 1px solid #c6c9cc;
+}
+
+td:first-child {
+  border-left: 1px solid #c6c9cc;
+}
+
+#title{
+	text-align:left;
+	text-indent: 2em;
+}
+
+tr:nth-child(even) td {
+  background: #eaeaed;
+}
+
+.chk{
+	appearance:auto; 
+	position:relative; 
+	width:20px;
+	height:20px; 
+	left:0;
+}
+
+.pagination{
+	margin:30px auto;
+	overflow : hidden;
+	display : flex;
+	justify-content : center;
+}
+
+.pagination a {
+	  color: black;
+	  float: left;
+	  padding: 8px 16px;
+	  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}

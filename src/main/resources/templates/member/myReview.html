@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="common/header"></th:block>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/css/member/myReview.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- container -->
+<main id="container" class="container">
+
+    <!-- contents -->
+    <section id="contents" class="contents myInfo">
+        <div class="mypageWrap">
+
+            <!-- 메뉴 -->
+            <th:block th:include="member/myPageMenu"></th:block>
+
+
+            <!-- 내 정보 내용 -->
+            <div class="myInfoWrap">
+                <div class="myInfoBox">
+                    <h2>나의 리뷰</h2>
+                    <th:block th:each="review : ${list}">
+                        
+
+                        <div class="reviewListBox">
+                        <span id="memberNo" th:text="${session.member.memberNo}"
+                            style="display:none"></span>
+                        <span class="reviewNo" id="reviewNo" th:text="${review.reviewNo}"
+                            style="display:none"></span>
+                        
+                            <button type="button" class="closeBtn"><span
+                                    class="material-icons close">close</span></button>
+                            <p>병원 : <span th:text="${review.hospitalName}"></span></p>
+                            <p>주소 : <span th:text="${review.hospitalAddrMain}"></span></p>
+                            <p>리뷰 제목: <span th:text="${review.reviewTitle}"></span></p>
+                            <p>평점: <span id="reviewRating" th:value="${review.reviewRating}"></span>
+                            		<span id="reviewRating" th:text="${review.reviewRating}"></span></p>
+                            <!-- <div class="star-wrap star-wrap2">
+                                <span class="material-icons">star</span>
+                                <span class="material-icons">star</span>
+                                <span class="material-icons">star</span>
+                                <span class="material-icons">star</span>
+                                <span class="material-icons">star</span>
+                                <div class="star-on"> <!--색깔별-->
+                                 <!-- <div class="star-wrap star-on-wrap">
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                        <span class="material-icons">star</span>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                            <input type="hidden" id="score" value="${review.reviewRating}">
+                            <p>내용: <span th:text="${review.reviewContent}"></span></p>
+                            <p>작성일자: <span th:text="${review.reviewDate}"></span></p>
+                            <p class="review_img_wrap">이미지: <img th:src="@{/reservation/review/}+${review.reviewImg}" alt="리뷰이미지"></img></p>
+                        </div>
+
+
+                    </th:block>
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!--// contents -->
+
+</main>
+<!--// container -->
+
+<th:block th:include="common/footer"></th:block>
+<script>
+
+    $(document).ready(function () {
+        // 페이지 로드 시 별점 조회하여 채워진 별표 표시
+        $(".reviewListBox").each(function () {
+            var score = parseInt($(this).find("#score").val()) || 0; // 널값이면 0으로 처리
+            fillStars($(this).find(".star-on"), score);
+        });
+    });
+
+    // 별표 채우기 함수
+    function fillStars($starOn, starRating) {
+        $starOn.css("width", starRating * 20 + "%"); // 별 하나의 너비는 20%
+    }
+
+
+
+
+
+    $(document).ready(function () {
+
+        $(".closeBtn").click(function () {
+            var $reviewListBox = $(this).closest(".reviewListBox");
+            var reviewNo = $reviewListBox.find("#reviewNo").text();
+            var memberNo = $("#memberNo").text();
+
+            $.ajax({
+                url: "/member/reviewDel",
+                method: "POST", 
+                data: { 
+                    reviewNo: reviewNo, 
+                    memberNo: memberNo 
+                },
+                success: function (result) {
+                    if (result > 0) {
+                        $reviewListBox.remove();
+                        alert("리뷰가 삭제되었습니다.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                    alert("리뷰 삭제에 실패하였습니다. 다시 시도해주세요.");
+                }
+            });
+        });
+    });
+
+
+
+
+
+</script>
+<!-- js 링크 -->
+</body>
+
+</html>

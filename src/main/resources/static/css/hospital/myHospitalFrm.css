@@ -1,0 +1,221 @@
+#contents{
+	padding:0 !important;
+	display:flex;
+	justify-content: center; /* 가로 가운데 정렬 */
+	
+}
+
+
+#hospital_wrap{
+    width: 1200px;
+    display:flex;
+    justify-content: center; /* 가로 가운데 정렬 */
+    padding: 0px !important;
+}
+
+
+#hospital_wrap .side_menu{
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.12);
+    
+}
+
+#hospital_wrap .side_menu li>a{
+    min-width: 200px;
+    text-align: center;
+    padding:20px 20px;
+    color:var(--main_03);
+    font-size:16px;
+    font-weight:bold;
+    width:100%;
+}
+
+#hospital_wrap .side_menu li:hover {
+    background-color:rgba(67,137,186,0.2);
+}
+
+
+#hospital_wrap .main_content{
+    flex-grow: 1;
+    padding: 30px;
+    display: flex;
+    justify-content: flex-start; /* 가로 가운데 정렬 */
+    width:1000px;
+}
+
+
+
+#hospital_wrap .main_content .hospital_info_form {
+    width:100%;
+    
+    padding:30px;
+}
+
+.input_wrap{
+    margin-top:50px;
+}
+
+.time_table{
+    display: flex;
+    align-items: center ; /* 수직 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    width: 50px;
+}
+
+.time_zone{
+	margin-top:10px;	
+}
+
+
+#hospital_tel_first{
+	width:10%;
+	text-align:center;
+	border-bottom: 1px solid var(--gray_05);
+	font-size:16px;
+	padding: 8px 0;
+	line-height: 1.5;
+	
+}
+
+#hospital_cost{
+	width:100%;
+}
+
+
+#hospital_cost th{
+	font-weight:600;
+	text-align: center;
+	
+	
+}
+
+
+
+
+/*checkbox css defalut 해제*/
+input[type=checkbox] {
+    -webkit-box-sizing: content-box !important; /* 원래대로 복원 */
+    box-sizing: content-box !important; /* 원래대로 복원 */
+    outline: initial !important; /* 원래대로 복원 */
+    -webkit-tap-highlight-color: initial !important; /* 원래대로 복원 */
+    -webkit-text-size-adjust: auto !important; /* 원래대로 복원 */
+    -moz-text-size-adjust: auto !important; /* 원래대로 복원 */
+    -ms-text-size-adjust: auto !important; /* 원래대로 복원 */
+    appearance: auto !important; /* 원래대로 복원 */
+    border: initial !important; /* 원래대로 복원 */
+    border-radius: initial !important; /* 원래대로 복원 */
+    padding: initial !important; /* 원래대로 복원 */
+    margin: initial !important; /* 원래대로 복원 */
+}
+input[type=checkbox] {
+    position: initial !important; /* 원래대로 복원 */
+    left: initial !important; /* 원래대로 복원 */
+    width: initial !important; /* 원래대로 복원 */
+    height: initial !important; /* 원래대로 복원 */
+    font-size: initial !important; /* 원래대로 복원 */
+    overflow: initial !important; /* 원래대로 복원 */
+}
+input:not([type=radio]){
+	display:inline !important;
+
+	}
+
+	
+	
+
+.addDoctorBtn{
+    border-color: var(--main_05) !important;
+    background-color: #fff !important;
+    color: var(--main_05) !important;
+    margin-left:10px;
+}
+	
+	
+	
+	
+.img{
+	width:20%;
+	border: 0.5px solid var(--line_02) !important;
+	/*border-radius: 20px !important;*/
+}
+
+table th{
+	width:100px;
+}
+
+table th, table td{
+	border: 0.5px solid var(--line_02);
+}
+
+
+.doc{
+	padding: 10px !important;
+	border-style:none !important;
+}
+
+
+#dicImg{
+	  background-color: #81ecec !important;
+  border: 2px solid #00cec9;
+}
+
+.deleteDoctorBtn{
+    border-color: var(--main_02) !important;
+    color: var(--main_02) !important;	
+    margin:5px !important;
+}
+
+
+#hospital_cost input{
+	border-style:none !important;
+	padding: 10px !important;
+}
+
+.specialty{
+	padding:10px;
+	width:100%;
+	font-size:16px;
+}
+
+
+.imgViewDiv{
+	display: flex;
+	align-items: center ; /* 수직 가운데 정렬 */
+	border: 1px solid var(--line_02);
+	width: 150px;
+}
+
+.img-view{
+	width:100%;
+}
+
+.doctors th, .doctors td {
+  vertical-align:middle;
+}
+
+.input_value{
+	background-color:var(--gray_07);
+	padding: 8px;
+	box-sizing: border-box;
+	border: 1px solid silver;
+}
+
+.doctor_list li{
+	margin-bottom: 40px ;
+}
+
+.infoDelBtn {
+	padding:20px;
+	background-color: var(--gray_04);
+	margin:5px;
+	color:white;
+	font-size:20px;
+}
+
+.infoUpBtn {
+	padding:20px;
+	background-color: var(--main_01);
+	margin:5px;
+	color:white;
+	font-size:20px;
+}
+

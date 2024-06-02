@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+.pharmacy-section{
+	display:flex;
+	height:100%;
+}
+.lt_section{
+	width:500px;
+}
+.rt_section{
+	width:calc(100% - 500px);
+}
+
+.select{
+	float: left;
+	width: calc(50% - 5px);
+	box-sizing: border-box;
+}
+.select+.select{
+	margin-left:10px;
+}
+
+#searchPharmacy{
+	width:400px;
+	
+}
+.select_wrap{
+	width:500px;
+	overflow:hidden;
+}
+.lt_section .select_wrap+.input_wrap{
+	margin-top:10px;
+}
+.pharmacyInfo{
+	margin-top: 30px;
+}
+
+.pharmacyTitle{
+	font-weight: bold; 
+	font-size:20px;
+	margin-bottom: 5px;
+	margin-top: 30px;
+	cursor: pointer;
+}
+.pharmacyTel{
+	border-bottom: 2px solid #ccc;
+	font-size: 14px;
+}
+.pharmacyAddr{
+	font-size: 15px;
+}
+.lt_section{
+	box-sizing: border-box;
+}
+.rt_section{
+	box-sizing: border-box;
+	padding-left: 10px;
+}
+.msgDiv{
+	font-size: 16px;
+	font-weight: bold;
+}
+.main>.inner_wrap{
+	padding: 0 15px;
+	max-width: none;
+}
