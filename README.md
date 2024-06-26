@@ -7,7 +7,7 @@
 2024.02.08 ~ 2024.02.29(3주)
 
 ## 팀원 소개
-![팀소개이미지]([https://github.com/sprintkim/HowHospital/blob/main/howhospital_erd.png](https://github.com/sprintkim/HowHospital/blob/main/%ED%8C%80%EC%86%8C%EA%B0%9C%EB%B0%8F%EC%97%AD%ED%95%A0%EB%B6%84%EB%8B%B4.jpg))
+![팀소개이미지](https://github.com/sprintkim/HowHospital/blob/270222ca46112a6ce9c9b1baadc77425ba365498/%ED%8C%80%EC%86%8C%EA%B0%9C%EB%B0%8F%EC%97%AD%ED%95%A0%EB%B6%84%EB%8B%B4.jpg)
 
 ## ERD
 ![ERD이미지](https://github.com/haeunsh/howHospital/blob/main/howhospital_erd.png)
